@@ -31,8 +31,9 @@ body {
   text-align: center;
 }
 .book img {
-  width: 100%;
+  aspect-ratio: 1/1;
   object-fit: cover;
+  width: 100%;
 }
 .book h2 {
   margin-top: 1rem;
