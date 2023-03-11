@@ -5,22 +5,36 @@ import './index.css';
 
 const books = [
   {
+    id: 1,
     author: 'Adam Wallace',
     title: 'How to Catch a Leprechaun',
     img: 'https://m.media-amazon.com/images/I/51jayVNubpL._SX218_BO1,204,203,200_QL40_FMwebp_.jpg',
   },
   {
+    id: 2,
     author: 'James Clear',
     title: 'Atomic Habits',
     img: 'https://m.media-amazon.com/images/I/51B7kuFwQFL._SY291_BO1,204,203,200_QL40_FMwebp_.jpg',
   },
 ];
 
+// const BookList = () => {
+//   return (
+//     <section className='booklist'>
+//       {books.map((book) => {
+//         const { author, title, img, id } = book;
+//         return <Book key={id} author={author} title={title} img={img} />;
+//       })}
+//     </section>
+//   );
+// };
+
+// by spreading the book object we can pass all the properties of the book object to the Book component
 const BookList = () => {
   return (
     <section className='booklist'>
       {books.map((book) => {
-        return <Book author={book.author} title={book.title} img={book.img} />;
+        return <Book key={book.id} {...book} />;
       })}
     </section>
   );
