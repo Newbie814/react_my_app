@@ -18,56 +18,24 @@ const books = [
   },
 ];
 
+// const BookList = () => {
+//   return (
+//     <section className='booklist'>
+//       {books.map((book) => {
+//         const { author, title, img, id } = book;
+//         return <Book key={id} author={author} title={title} img={img} />;
+//       })}
+//     </section>
+//   );
+// };
+
+// by spreading the book object we can pass all the properties of the book object to the Book component
 const BookList = () => {
   return (
     <section className='booklist'>
-      <EventExamples />
       {books.map((book) => {
         return <Book key={book.id} {...book} />;
       })}
-    </section>
-  );
-};
-
-// events in vanilla js:
-// const btn = document.getElementById('btn');
-
-// btn.addEventListener('click', function (e) {
-//   access event object
-//   do something when event fires
-// });
-
-const EventExamples = () => {
-  const handleFormInput = (e) => {
-    console.log('target:', e.target);
-    console.log('value:', e.target.value);
-    console.log('name:', e.target.name);
-  };
-  const handleButtonClick = (e) => {
-    alert('button clicked');
-  };
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log('form submitted');
-    console.log(e.target.value);
-  };
-  return (
-    <section>
-      <form onSubmit={handleSubmit}>
-        <h2>Typical Form</h2>
-        <input
-          type='text'
-          name='example'
-          onChange={handleFormInput}
-          style={{ margin: '1rem 0' }}
-        />
-        <button type='submit'>submit</button>
-        <div>
-          <button type='button' onClick={handleButtonClick}>
-            Click Me
-          </button>
-        </div>
-      </form>
     </section>
   );
 };
