@@ -1,5 +1,3 @@
-// Prop drilling: passing props down the component tree
-
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 
@@ -21,16 +19,11 @@ const books = [
 ];
 
 const BookList = () => {
-  const getBook = (id) => {
-    const book = books.find((book) => book.id === id);
-    console.log(book);
-  };
-
   return (
     <section className='booklist'>
       <EventExamples />
       {books.map((book) => {
-        return <Book key={book.id} {...book} getBook={getBook} />;
+        return <Book key={book.id} {...book} />;
       })}
     </section>
   );
@@ -79,16 +72,12 @@ const EventExamples = () => {
   );
 };
 
-const Book = ({ author, title, img, getBook, id }) => {
+const Book = ({ author, title, img }) => {
   // console.log(props);
-  const clickHandler = () => {
-    getBook(id);
-  };
   return (
     <article className='book'>
       <img src={img} alt={title} className='bookImage' />
       <h2>{title}</h2>
-      <button onClick={clickHandler}>click me</button>
       <h2>{author}</h2>
     </article>
   );
